@@ -110,8 +110,8 @@ def KNNpeptide(fastas, **kw):
 		encodings.append(code)
 
 	return encodings
-fastas = readFasta.readFasta(r"E:\研究\新建文件夹\code\mycode-PPTPP\data\trainsets\AAP_1.txt")
-kw=  {'path': r"E:\研究\新建文件夹\code\mycode-PPTPP\data\trainsets",'train':r"E:\研究\新建文件夹\code\mycode-PPTPP\data\trainsets\AAP_1.txt",'label':r"E:\研究\新建文件夹\code\mycode-PPTPP\data\trainsets\label_AAP_1.txt",'order':'ACDEFGHIKLMNPQRSTVWYO'}
+fastas = readFasta.readFasta(r"C:\AAP_1.txt")
+kw=  {'path': r"C:",'train':r"C:\AAP_1.txt",'label':r"C:\label_AAP_1.txt",'order':'ACDEFGHIKLMNPQRSTVWYO'}
 
 data_KNN=KNNpeptide(fastas, **kw)
 
@@ -122,6 +122,6 @@ data_knn_1=pd.DataFrame(data=data_knn)
 column=data_knn.shape[1]
 data_knn_feature=data_knn[:,np.array(range(1,column,2))]
 test=pd.DataFrame(data=data_knn_feature)
-test.to_csv('KNN_SBP_test.csv')
+test.to_csv('KNN_AAP.csv')
 
 
