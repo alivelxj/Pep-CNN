@@ -35,7 +35,7 @@ ytest=np.ones((1,2))*0.5
 yscore=np.ones((1,2))*0.5
 cv_clf = SVC(probability=True,kernel='poly')
 a1 = time.time()
-skf= StratifiedKFold(n_splits=20)
+skf= StratifiedKFold(n_splits=10)
 for train, test in skf.split(X,y): 
     y_train=utils.to_categorical(y[train])
     hist=cv_clf.fit(X[train], y[train])
