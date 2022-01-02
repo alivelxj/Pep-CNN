@@ -23,10 +23,10 @@ data_=pd.read_csv(r'C:\feature_AAP.csv',header=None)
 data=np.array(data_)
 data=data[:,1:]
 [m1,n1]=np.shape(data)
-#label1=np.ones((int(m1/2),1))#Value can be changed
-#label2=np.zeros((int(m1/2),1))
-label1=np.ones((544,1))
-label2=np.zeros((407,1))
+label1=np.ones((int(m1/2),1))#Value can be changed
+label2=np.zeros((int(m1/2),1))
+#label1=np.ones((544,1))
+#label2=np.zeros((407,1))
 label=np.append(label1,label2)
 shu=scale(data)
 X=shu
