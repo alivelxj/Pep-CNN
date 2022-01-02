@@ -12,3 +12,5 @@ Pep-CNN: A method for predicting therapeutic peptides based on convolutional neu
   First, run complementary.py to make the dataset under the data file equal in length.  
   Second, extract features using the five feature extraction methods in the feature extraction file, and then run montage.py in the feature extraction file to combine them together.  
   Finally, run imCNN.py in the classifier folder to get the prediction results.  
+  
+  Note: The input file location in the program needs to be matched with the personal file location！
