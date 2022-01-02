@@ -26,7 +26,7 @@ from keras.layers import Conv1D, ZeroPadding1D, GlobalMaxPooling1D, MaxPooling1D
 from keras.models import Model
 import time
 
-left_input = Input(shape=((1754, 1)))
+left_input = Input(shape=((3090, 1)))
 right_lstm = LSTM(16)(left_input)
 right_lstm = Flatten()(right_lstm)
 right_branch = Dense(10)(right_lstm)
@@ -70,7 +70,7 @@ for train, test in skf.split(X,y):
     cv_clf = model
     hist=cv_clf.fit(X[train],
                     y_train,
-                    epochs=5)
+                    epochs=20)
     y_test=utils.to_categorical(y[test])#generate the test 
     ytest=np.vstack((ytest,y_test))
     y_test_tmp=y[test]       
