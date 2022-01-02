@@ -49,14 +49,14 @@ yscore=np.ones((1,2))*0.5
 
 X = X.reshape(m1, n1, -1)
 
-skf= StratifiedKFold(n_splits=5)
+skf= StratifiedKFold(n_splits=10)
 
 for train, test in skf.split(X,y): 
     y_train=utils.to_categorical(y[train])#generate the resonable results
     cv_clf = model
     hist=cv_clf.fit(X[train], 
                     y_train,
-                    epochs=5)
+                    epochs=20)
     y_test=utils.to_categorical(y[test])#generate the test 
     ytest=np.vstack((ytest,y_test))
     y_test_tmp=y[test]       
