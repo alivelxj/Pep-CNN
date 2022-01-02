@@ -10,17 +10,18 @@ from keras.layers import Flatten
 import numpy as np
 from keras.layers import Conv1D, MaxPooling1D,Dropout
 from keras.models import Model
-
-model = Sequential()
-model.add(Dense(32, activation = 'relu',name="Dense_32"))
-model.add(Dropout(0.5))
-model.add(Dense(32, activation = 'relu',name="Dense_32"))
-model.add(Dropout(0.5))
-model.add(Dense(32, activation = 'relu',name="Dense_32"))
-model.add(Dropout(0.5))
-model.add(Dense(32, activation = 'relu',name="Dense_32"))
-model.add(Dense(2, activation = 'softmax',name="Dense_2"))
-model.compile(loss = 'binary_crossentropy', optimizer = 'Adam', metrics =['accuracy'])#rmsprop
+def model():
+    model = Sequential()
+    model.add(Dense(32, activation = 'relu',name="Dense_32"))
+    model.add(Dropout(0.5))
+    model.add(Dense(32, activation = 'relu',name="Dense_32"))
+    model.add(Dropout(0.5))
+    model.add(Dense(32, activation = 'relu',name="Dense_32"))
+    model.add(Dropout(0.5))
+    model.add(Dense(32, activation = 'relu',name="Dense_32"))
+    model.add(Dense(2, activation = 'softmax',name="Dense_2"))
+    model.compile(loss = 'binary_crossentropy', optimizer = 'Adam', metrics =['accuracy'])#rmsprop
+    return model
 
 
 
@@ -51,7 +52,7 @@ for train, test in skf.split(X,y):
     cv_clf = model
     hist=cv_clf.fit(X[train], 
                     y_train,
-                    epochs=5)
+                    epochs=20)
     
     y_score=cv_clf.predict(X[test])#the output of  probability
     y_class= utils.categorical_probas_to_classes(y_score)
